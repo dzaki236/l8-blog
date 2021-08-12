@@ -46,11 +46,10 @@ class PostController extends Controller
             'content' => 'required'
         ]);
         // upload image
-        $image = $request->file('image');
-        $image->storeAs('public/post', $image->hashName());
+        $request->file('image')->storeAs('public/post', $request->file('image')->hashName());
 
         $posting = Post::create([
-            'image' => $image->hashName(),
+            'image' => $request->file('image')->hashName(),
             'title' => $request->title,
             'content' => $request->content
         ]);
