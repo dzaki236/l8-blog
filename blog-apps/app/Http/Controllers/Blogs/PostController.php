@@ -61,7 +61,7 @@ class PostController extends Controller
             return redirect()->route('posts.index')->with(['error' => 'Data gagal di tambahkan']);
         }
     }
-
+   
     /**
      * Display the specified resource.
      *
