@@ -18,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('posts.index',['posts'=>Post::latest()->paginate(10)]);
+    return redirect('/posts');
 });
-
 // Route::resource('posts', 'Blogs\PostController');
 // Route::resource('posts', PostController::class);
 Route::resource('posts',BlogPostController::class);
+// Route::get('/posts',[BlogPostController::class,'index'])->name('posts.index');
+// Route::get('/posts/create',[BlogPostController::class,'create'])->name('posts.create');
+// Route::post('/posts',[BlogPostController::class,'store'])->name('posts.store');
+// Route::get('/posts/{post}/show',[BlogPostController::class,'show'])->name('posts.show');
+// Route::get('/posts/{post}/edit',[BlogPostController::class,'edit'])->name('posts.edit');
+// Route::put('/edit/{post}',[BlogPostController::class,'update'])->name('posts.update');
+// Route::delete('/posts/{post}/',[BlogPostController::class,'destroy'])->name('posts.destroy');

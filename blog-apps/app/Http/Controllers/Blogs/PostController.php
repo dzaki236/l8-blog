@@ -106,7 +106,7 @@ class PostController extends Controller
                 'title' => $request->title,
                 'content' => $request->content
             ]);
-        } else {
+            } else {
             Storage::disk('local')->delete('public/posts/' . $posts->image);
             $foto = $request->file('image');
             $foto->storeAs('public/posts/', $foto->hasName());
@@ -115,14 +115,17 @@ class PostController extends Controller
                 'title' => $request->title,
                 'content' => $request->content
             ]);
-            if ($posts) {
+            
+        }
 
-                //redirect dengan pesan sukses
-                return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Diupdate!']);
-            } else {
-                //redirect dengan pesan error
-                return redirect()->route('posts.index')->with(['error' => 'Data Gagal Diupdate!']);
-            }
+        if ($posts) {
+
+            //redirect dengan pesan sukses
+            return redirect('/posts')->with(['success' => 'Data Berhasil Diupdate!']);
+
+        } else {
+            //redirect dengan pesan error
+            return redirect('/posts')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 

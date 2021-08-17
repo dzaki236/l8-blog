@@ -26,7 +26,6 @@
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-
                             <div class="form-group">
                                 <label class="font-weight-bold">GAMBAR</label>
                                 <input type="file" class="form-control" name="image">
